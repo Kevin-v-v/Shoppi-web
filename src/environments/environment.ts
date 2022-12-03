@@ -6,7 +6,6 @@ export const environment = {
   production: false
 };
 
-export const host = "https://localhost:444/api/";
 export const hostCloud = "https://shoppi.eastus.cloudapp.azure.com/api/";
 
 export const categories = [

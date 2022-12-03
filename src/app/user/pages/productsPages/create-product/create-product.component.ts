@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UserService } from '../../../../services/user.service';
 import { categories } from 'src/environments/environment';
+import { ROUTEuserProducts } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-create-product',
@@ -17,7 +18,7 @@ export class CreateProductComponent {
   isDisabled = false
   categories = categories
 
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog, ) {}
 
   categoriesControl = new FormControl<CategoriesProducts | null>(null, Validators.required);
 
@@ -51,7 +52,7 @@ export class CreateProductComponent {
                 if (this.Response.body.success == false){
                   this.dialog.open(createProductDialog, { data: this.Response.body.msg});
                 }
-                else{ this.reloadCurrentPage() }
+                else{ this.router.navigate([ROUTEuserProducts]) }
 
       },
       err => { this.dialog.open(createProductDialog, { data: "Error del servidor, inténtalo más tarde"}); },
@@ -59,9 +60,6 @@ export class CreateProductComponent {
     );
   }
   
-  reloadCurrentPage() {
-    window.location.reload();
-  }
 }
 
 @Component({

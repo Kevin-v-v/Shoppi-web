@@ -55,8 +55,8 @@ export class ProductsComponent {
 
   deleteProduct(productID: string){
     this.userService.deleteUserProduct(productID).subscribe(
-      res => { this.reloadCurrentPage() },
-      err => { this.reloadCurrentPage() }
+      res => { this.router.navigate([ROUTEuserProducts]) },
+      err => { this.router.navigate([ROUTEuserProducts]) }
     );
   }
 
@@ -81,9 +81,5 @@ export class ProductsComponent {
   goBackPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.currentPage - 1 } }) }
   goNextPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.currentPage + 1 } }) }
   goEndPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.finalPage } }) }
-
-  reloadCurrentPage() {
-    window.location.reload();
-  }
   
 }
