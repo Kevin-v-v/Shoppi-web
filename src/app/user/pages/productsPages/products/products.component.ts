@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ROUTEuserCreateProduct, ROUTEuserProducts, ROUTEuserViewProduct, ROUTEuserModifyProduct, ROUTEuser } from '../../../../../environments/environment';
+import { ROUTEuserCreateProduct, ROUTEuserProducts, ROUTEuserViewProduct, ROUTEuserModifyProduct } from '../../../../../environments/environment';
+import { ROUTEproductGrid } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-products',
@@ -55,8 +56,8 @@ export class ProductsComponent {
 
   deleteProduct(productID: string){
     this.userService.deleteUserProduct(productID).subscribe(
-      res => { this.router.navigate([ROUTEuser]) },
-      err => { this.router.navigate([ROUTEuser]) }
+      res => { this.router.navigate([ROUTEproductGrid]) },
+      err => { this.router.navigate([ROUTEproductGrid]) }
     );
   }
 
