@@ -27,7 +27,7 @@ export const ROUTElogin = "auth/login";
 
 export const ROUTEproductGrid ='products/grid';
 
-
+export const ROUTEuser = "user"
 export const ROUTEuserProducts = "user/products"
 export const ROUTEuserCreateProduct = "user/createProduct"
 export const ROUTEuserViewProduct = "user/viewProduct"
