@@ -12,7 +12,7 @@ export class AuthService {
   
   doRegister(data: FormData, image: any){
     data.append("image", image)
-    return this.http.post(`${hostCloud}}register`, data)
+    return this.http.post(`${hostCloud}register`, data)
   }
 
   doLogin(loginForm: any){
