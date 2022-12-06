@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ROUTEproductGrid } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-verified',
   templateUrl: './verified.component.html',
-  styleUrls: ['./verified.component.css']
+  styleUrls: ['../main/main.component.css']
 })
-export class VerifiedComponent implements OnInit {
+export class VerifiedComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  goProducts(){
+    this.router.navigate([ROUTEproductGrid])
   }
 
 }

@@ -30,11 +30,11 @@ export class MainComponent {
     this.router.navigate([ROUTEuserAccount])
   }
 
-  goAdmin(){
-  }
-
   Logout(){
-    this.authService.doLogOut().subscribe(resp => console.log(resp))
-    this.router.navigate([ROUTEfrontPage])
+    this.authService.doLogOut().subscribe(
+      res => {},
+      err => {},
+      () => { this.router.navigate([ROUTEfrontPage]) }
+    );
   }
 }

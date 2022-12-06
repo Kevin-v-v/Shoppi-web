@@ -34,11 +34,13 @@ export class GridProductsComponent {
       
       let strPageParams = ""
       let strCategoryParams = ""
-      
+      let strkeywordParams = ""
+
       if (params['page'] != undefined){ strPageParams = `page=${params['page']}` }
       if (params['category'] != undefined){ strCategoryParams = `category=${params['category']}` }
+      if (params['keyword'] != undefined){ strkeywordParams = `keyword=${params['keyword']}` }
       
-      let strAllParams = `${strPageParams}&${strCategoryParams}`
+      let strAllParams = `${strPageParams}&${strCategoryParams}&${strkeywordParams}`
 
       productsService.getProducts(strAllParams).subscribe(
         resp => {
@@ -77,7 +79,7 @@ export class GridProductsComponent {
   goBackPage(){ this.router.navigate([ROUTEgridProducttID], { queryParams: { page: this.currentPage - 1, category: this.selected } }) }
   goNextPage(){ this.router.navigate([ROUTEgridProducttID], { queryParams: { page: this.currentPage + 1, category: this.selected } }) }
   goEndPage(){ this.router.navigate([ROUTEgridProducttID], { queryParams: { page: this.finalPage, category: this.selected } }) }
-  addCategoria(){this.router.navigate([ROUTEgridProducttID], { queryParams: { category: this.selected } }) }
+  addCategoria(){this.router.navigate([ROUTEgridProducttID], { queryParams: { keyword: this.value, category: this.selected } }) }
 
   goViewProduct(idProduct: string){
     this.router.navigate([ROUTEgridProducttID, idProduct])

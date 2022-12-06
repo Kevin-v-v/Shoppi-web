@@ -26,4 +26,8 @@ export class AuthService {
   doLogOut(){
     return this.http.delete(`${hostCloud}logout`, {observe: "response", withCredentials: true})
   }
+
+  sendEmail(username: string){
+    return this.http.get(`${hostCloud}sendmail?username=${username}`, {observe: "response", withCredentials: true})
+  }
 }

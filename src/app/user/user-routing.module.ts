@@ -34,14 +34,6 @@ const routes: Routes = [
         component: AccountComponent
       },
       {
-        path: 'modifyAccount/:id',
-        component: AccountComponent
-      },
-      {
-        path: 'admin/:id',
-        component: AccountComponent
-      },
-      {
         path: '**',
         redirectTo: 'products'
       }

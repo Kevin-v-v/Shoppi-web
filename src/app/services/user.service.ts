@@ -31,12 +31,6 @@ export class UserService {
 
   modifyUserProduct(data: FormData, image: any){
     data.append("image", image)
-    //return this.http.put(`${hostCloud}posts/update`, data, {observe: "response", withCredentials: true})
-    // let Low = new FormData();
-    // Low.append("post_id", "638425ae3c5bb1e1b538b506")
-    // Low.append("title", "Prueba")
-    // Low.append("description", "quiero dormir")
-    // Low.append("category", "Comida")
     return this.http.put(`${hostCloud}posts/update`, data, {observe: "response", withCredentials: true})
   }
 
@@ -44,4 +38,7 @@ export class UserService {
     return this.http.delete(`${hostCloud}posts/delete`, {body: {"post_id": postId}, observe: "response", withCredentials: true})
   }
 
+  toggleUserProduct(postId: string){
+    return this.http.delete(`${hostCloud}posts/toggle`, {body: {"post_id": postId}, withCredentials: true})
+  }
 }

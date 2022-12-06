@@ -10,8 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewProductComponent } from './pages/productsPages/view-product/view-product.component';
 import { ModifyProductComponent } from './pages/productsPages/modify-product/modify-product.component';
 import { AccountComponent } from './pages/accountPages/account/account.component';
-import { ModifyAccountComponent } from './pages/accountPages/modify-account/modify-account.component';
-import { AdminComponent } from './pages/adminPages/admin/admin.component';
 
 
 @NgModule({
@@ -21,9 +19,7 @@ import { AdminComponent } from './pages/adminPages/admin/admin.component';
     CreateProductComponent,
     ViewProductComponent,
     ModifyProductComponent,
-    AccountComponent,
-    ModifyAccountComponent,
-    AdminComponent
+    AccountComponent
   ],
   imports: [
     CommonModule,

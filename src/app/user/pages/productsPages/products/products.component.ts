@@ -10,10 +10,11 @@ import { ROUTEproductGrid } from '../../../../../environments/environment.prod';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-
+  
   productsResponse: any
   productsData: any
 
+  checked = false;
   //  Paginación
   pageNumber: number | undefined;
   currentPage = 0
@@ -37,6 +38,11 @@ export class ProductsComponent {
           this.currentPage = this.productsResponse.page
           this.finalPage = this.productsResponse.total_pages
           this.checkPaginator()
+          for (let product in this.productsData){
+            let val = false
+            if( this.productsData[product].post_status == 1){ val = true }
+            this.productsData[product].post_status = val
+          }
         }
       )
     } );
@@ -56,8 +62,15 @@ export class ProductsComponent {
 
   deleteProduct(productID: string){
     this.userService.deleteUserProduct(productID).subscribe(
-      res => { this.router.navigate([ROUTEproductGrid]) },
-      err => { this.router.navigate([ROUTEproductGrid]) }
+      res => { window.location.reload() },
+      err => { window.location.reload() }
+    );
+  }
+
+  toggleProduct(productID: string){
+    this.userService.toggleUserProduct(productID).subscribe(
+      res => { window.location.reload() },
+      err => { window.location.reload() }
     );
   }
 
@@ -82,5 +95,5 @@ export class ProductsComponent {
   goBackPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.currentPage - 1 } }) }
   goNextPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.currentPage + 1 } }) }
   goEndPage(){ this.router.navigate([ROUTEuserProducts], { queryParams: { page: this.finalPage } }) }
-  
+
 }

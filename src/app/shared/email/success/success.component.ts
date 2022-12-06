@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ROUTEproductGrid } from '../../../../environments/environment.prod';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success',
   templateUrl: './success.component.html',
-  styleUrls: ['./success.component.css']
+  styleUrls: ['../main/main.component.css']
 })
-export class SuccessComponent implements OnInit {
+export class SuccessComponent  {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  goProducts(){
+    this.router.navigate([ROUTEproductGrid])
   }
 
 }

@@ -14,6 +14,7 @@
                 <button mat-button (click)="viewProduct(product.id)">VER</button>
                 <button mat-button (click)="modifyProduct(product.id)">EDITAR</button>
                 <button mat-button (click)="deleteProduct(product.id)">BORRAR</button>
+                <mat-slide-toggle color="warn" [checked]="product.post_status" (click)="toggleProduct(product.id)">ESTADO</mat-slide-toggle>
             </mat-card-actions>
         </mat-card>
     </div>

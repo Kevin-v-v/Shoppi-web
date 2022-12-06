@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ROUTEproductGrid } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  styleUrls: ['../main/main.component.css']
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  goProducts(){
+    this.router.navigate([ROUTEproductGrid])
   }
 
 }
